@@ -1,0 +1,141 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* ---------- NAVBAR ---------- */
+header {
+  background: #111;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  color: white !important;
+  letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-weight: 500;
+  margin: 0 10px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #0dcaf0 !important;
+}
+
+/* ---------- HOME SECTION ---------- */
+.hero {
+  height: 100vh;
+  background: url(src/a-sleek-digital-illustration-showcasing-_j5mHryiWRC2TfWuMvTpHQA_6NwVw67-Q32KiF5myCJR_g.jpeg) center/cover no-repeat;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-attachment: fixed;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 15px;
+  max-width: 600px;
+}
+
+.hero .btn {
+  margin-top: 25px;
+  font-size: 1.1rem;
+  padding: 10px 25px;
+}
+
+/* ---------- ABOUT SECTION ---------- */
+#about {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 60px 20px;
+  background: #f8f9fa;
+}
+
+#about img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#about h2 {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* ---------- SKILLS SECTION ---------- */
+#skills {
+  background: white;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#skills img {
+  width: 100px;
+  margin-bottom: 15px;
+}
+
+#skills h3 {
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+/* ---------- PROJECTS ---------- */
+#projects {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#projects .card img {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* ---------- SERVICES ---------- */
+#services {
+  background: #f8f9fa;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+#services .card {
+  border: none;
+}
+
+/* ---------- CONTACT ---------- */
+#contact {
+  padding: 80px 20px;
+  background: #111;
+  color: white;
+}
+
+#contact a {
+  color: #0dcaf0;
+  text-decoration: none;
+}
+
+#contact a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  background: #000;
+  color: #ccc;
+  text-align: center;
+  padding: 15px;
+}
