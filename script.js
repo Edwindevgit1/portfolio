@@ -1,3 +1,11 @@
+// Initialize EmailJS
+(function () {
+  emailjs.init({
+    publicKey: "ZhBB10EqO8FKBRSLi" 
+  });
+})();
+
+// Handle form submission
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -6,12 +14,12 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const message = document.getElementById("message").value.trim();
   const formMessage = document.getElementById("formMessage");
 
-  // Only letters and single spaces allowed in name
   const namePattern = /^[A-Za-z]+(?: [A-Za-z]+)*$/;
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (!namePattern.test(name)) {
-    formMessage.textContent = "Please enter a valid name (letters and spaces only, no numbers).";
+  // Validation
+  if (name === "" || !namePattern.test(name)) {
+    formMessage.textContent = "Please enter a valid name.";
     formMessage.style.color = "red";
     formMessage.style.display = "block";
     return;
@@ -31,14 +39,27 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     return;
   }
 
-  // Success
-  formMessage.textContent = `Thank you for your message, ${name}! I’ll get back to you soon.`;
-  formMessage.style.color = "green";
-  formMessage.style.display = "block";
+  // Send email using EmailJS
+  emailjs
+    .send("service_a2oycjb", "template_52e5gio", {
+      from_name: name,
+      from_email: email,
+      message: message,
+    })
+    .then(
+      () => {
+        formMessage.textContent = `Thank you, ${name}! Your message has been sent successfully.`;
+        formMessage.style.color = "green";
+        formMessage.style.display = "block";
+        document.getElementById("contactForm").reset();
 
-  this.reset();
-
-  setTimeout(() => {
-    formMessage.style.display = "none";
-  }, 4000);
+        setTimeout(() => (formMessage.style.display = "none"), 4000);
+      },
+      (error) => {
+        console.error("EmailJS Error:", error);
+        formMessage.textContent = "Error sending message. Please try again.";
+        formMessage.style.color = "red";
+        formMessage.style.display = "block";
+      }
+    );
 });
